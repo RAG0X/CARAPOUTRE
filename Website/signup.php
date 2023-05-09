@@ -5,45 +5,49 @@
     $db_pass = "1234"; // mot de passe MySQL
     $db_name = "carapoutre"; // nom de la base de données
 
-    $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+    // Création d'une connexion MySQLi
+    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-    if (!$conn) {
-        die("La connexion à la base de données a échoué: " . mysqli_connect_error());
+    // Vérification de la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
 
-    // Traitement du formulaire
-    if(isset($_POST['submit'])) {
-        // récupération des données
-        $username = mysqli_real_escape_string($conn, $_POST["username"]);
-        $email = mysqli_real_escape_string($conn, $_POST["email"]);
-        $password = mysqli_real_escape_string($conn, $_POST["password"]);
-        
-        // convertir la date de naissance dans le bon format
-        $birthdate = date_create_from_format("d/m/Y", $_POST["birthdate"]);
-        $birthdate_formatted = date_format($birthdate, "Y-m-d");
+    // Récupération des données du formulaire
+    $username = $_POST["username"];
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $password = $_POST["password"];
+    $statut = $_POST["statut"];
+    $birthdate = $_POST["birthdate"];
+    $height = $_POST["height"];
+    $weight = $_POST["weight"];
 
-        $height = mysqli_real_escape_string($conn, $_POST["height"]);
-        $weight = mysqli_real_escape_string($conn, $_POST["weight"]);
-        $statut = mysqli_real_escape_string($conn, $_POST["statut"]);
-
-        // Insertion des données dans la base de données
-        if($statut == 'athlete') {
-            $table = 'base_athlete';
-        } elseif($statut == 'coach') {
-            $table = 'base_coach';
-        }
-
-        // Requête d'insertion dans la base de données
-$sql = "INSERT INTO base_athlete (username, date_de_naissance, email, taille_cm, poids_kg, password) VALUES ('$username', '$birthdate', '$email', '$height', '$weight', '$password')";
-
-if (mysqli_query($conn, $sql)) {
-    echo "Inscription réussie !";
-} else {
-    echo "Erreur: " . mysqli_error($conn);
-}
-
-mysqli_close($conn);
+    if($statut == 'athlete') 
+    {
+        $table = 'base_athlete';
+    } 
+    elseif($statut == 'coach') 
+    {
+        $table = 'base_coach';
     }
 
-    mysqli_close($conn);
+    // Requête d'insertion des données dans la base de données
+    $stmt = $conn->prepare("INSERT INTO $table (username, date_de_naissance, email, taille_cm, poids_kg, password) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $username, $birthdate, $email, $height, $weight, $password);
+    $stmt->execute();
+
+    // Vérification si la requête a été exécutée avec succès
+    if ($stmt->affected_rows > 0) {
+        echo "Inscription réussie !";
+        header("Location: signupsuccess.html");
+        exit();
+    } else {
+        echo "Erreur lors de l'inscription : " . $stmt->error;
+        header("Location: signupfailed.html");
+        exit();
+    }
+
+    // Fermeture de la connexion à la base de données
+    $stmt->close();
+    $conn->close();
 ?>

@@ -107,6 +107,21 @@ header {
     box-shadow: 20px 30px 25px rgba(0, 0, 0, 0.2);
 }
 
+.container.success {
+    max-height: 432px;
+    max-width: 768px;
+    background-color: rgba(0, 0, 0, 0.603);
+    width: 50%;
+    min-width: 420px;
+    padding: 35px 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 515px;
+    left: 50%;
+    border-radius: 10px;
+    box-shadow: 20px 30px 25px rgba(0, 0, 0, 0.2);
+}
+
 .container.connect {
     max-height: 432px;
     max-width: 768px;
@@ -135,6 +150,11 @@ header {
     box-shadow: 20px 30px 25px rgba(0, 0, 0, 0.2);
 }
 
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
 .wrap-menu {
     position: absolute;
     top: 235px;
@@ -143,16 +163,22 @@ header {
     max-width: 700px;
     min-width: 420px;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #252525ee;
     padding: 35px 50px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     box-shadow: 20px 30px 25px rgb(0 0 0 / 20%);
 }
 
+#welcome-message {
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+}
+
 .contenu-menu {
     display: flex;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #f5f5fab0;
     width: 50%;
     max-width: 700px;
     min-width: 420px;
@@ -165,7 +191,9 @@ header {
     border-bottom-left-radius: 10px;
     box-shadow: 20px 30px 25px rgb(0 0 0 / 20%);
     flex-direction: column;
+    justify-content: center;
 }
+
 
 .video-bg {
     max-height: 432px;
@@ -259,6 +287,7 @@ label{
 textarea,
 input,
 select{
+    max-width: 746px;
     width: 100%;
     font-weight: 400;
     padding: 8px 10px;
@@ -288,17 +317,30 @@ button{
 
 .button2{
     margin: 10px;
+    border: none;
     padding: 40px 20px;
-    background: rgba(0, 0, 0, 0.5);
+    background: #252525ee;
     color: #ffffff;
-    border-radius: 3px;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
 }
 
+.button2:hover {
+    background-color: #4d4d4dee;
+    color: white;
+    transform: scale(1.1);
+}
 
 
 .button-clicked {
     background-color: rgba(255, 80, 80, 0.5);
 }  
+
+.button-clicked2 {
+    background-color: #808080;
+    transform: scale(0.9);
+}  
+
 
 .connect
 {
