@@ -223,78 +223,47 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CARAPOUTRE - Paramètres</title>
-        <link rel="stylesheet" href="style.css"/>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARAPOUTRE - Paramètres</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
 
-    <body>
-        <nav class="navbar">
-            <a href="index.html"><img src="img/logo-carapoutre.png" alt="logo Carapoutre" class="logo"></a>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="index.html">Déconnexion</a></li>
-                </ul>
-            </div>
-            <img src="img/menu-btn.png" alt="menu hamburger" class="menu-hamburger">
-        </nav>
-        <div class="menu">
-            <div class="wrap-menu">
-                <h1 id="welcome-message">Besoin de changement <?php echo $_SESSION["username"]; ?> ?</h1>
-            </div>
-            <div class="contenu-menu">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                    <div class="row">
-                        <div class="column">
-                            <label for="email">Adresse email</label>
-                            <input type="email" id="email" name="email" value="<?php echo $email ?>" required>
-                        </div>
-                        <div class="column">
-                            <label for="password">Mot de passe</label>
-                            <input type="password" id="password" name="password" value="<?php echo $password ?>" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="column">
-                            <label for="athlete1">Athlete n°1</label>
-                            <input type="text" id="email_athlete_1" name="email_athlete_1" value="<?php echo $mail_athlete1 ?>" placeholder="Ici le mail de votre athlete">
-                        </div>
-                        <div class="column">
-                            <label for="athlete2">Athlete n°2</label>
-                            <input type="text" id="email_athlete_2" name="email_athlete_2" value="<?php echo $mail_athlete2 ?>" placeholder="Ici le mail de votre athlete">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="column">
-                            <label for="athlete3">Athlete n°3</label>
-                            <input type="text" id="email_athlete_3" name="email_athlete_3" value="<?php echo $mail_athlete3 ?>" placeholder="Ici le mail de votre athlete">
-                        </div>
-                        <div class="column">
-                            <label for="athlete4">Athlete n°4</label>
-                            <input type="text" id="email_athlete_4" name="email_athlete_4" value="<?php echo $mail_athlete4 ?>" placeholder="Ici le mail de votre athlete">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button id="update-btn" type="submit" name="update-info">Mettre à jour les informations</button>
-                        <button id="delete-btn" type="submit" name="delete-account">Supprimer le compte</button>
-                    </div>
-                </form>
-                <button class="button2" id="retour-btn" onclick="window.location.href='menu_coach.php'">Retour</button>
-            </div>
+<body>
+    <nav class="navbar">
+        <a href="index.html"><img src="img/logo-carapoutre.png" alt="logo Carapoutre" class="logo"></a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Déconnexion</a></li>
+            </ul>
         </div>
+        <img src="img/menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+    </nav>
+    <div class="menu">
+        <div class="wrap-menu">
+            <h1 id="welcome-message">Prêt à faire suer tes athlètes <?php echo $_SESSION["username"]; ?> ?</h1>
+        </div>
+        <div class="contenu-menu">
+            <div class="bloc-athlete">
+                <!-- Contenu du bloc-athlete -->
+                <h2 class="titre">[USERNAME]</h2>
+                <button class="button3" id="access-page-athlete-btn">Accéder à son profil</button>
+            </div>
+            <button class="button2" id="retour-btn" onclick="window.location.href='menu_coach.php'">Retour</button>
+        </div>
+    </div>
 
-        <script>
-            const menuHamburger = document.querySelector(".menu-hamburger");
-            const navLinks = document.querySelector(".nav-links");
+    <script>
+        const menuHamburger = document.querySelector(".menu-hamburger");
+        const navLinks = document.querySelector(".nav-links");
 
-            menuHamburger.addEventListener('click',()=>{
-                navLinks.classList.toggle('mobile-menu')
-                document.body.classList.toggle('no-scroll')
-                window.scrollTo(0,0)
-            });
-        </script>        
-    </body>
+        menuHamburger.addEventListener('click',()=>{
+            navLinks.classList.toggle('mobile-menu')
+            document.body.classList.toggle('no-scroll')
+            window.scrollTo(0,0)
+        });
+    </script>
+</body>
 </html>

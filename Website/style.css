@@ -219,6 +219,13 @@ header {
     justify-content: center;
 }
 
+.bloc-athlete {
+    background-color: #ff0000; /* Couleur de fond blanche */
+    border-radius: 10px;
+    max-height: 300px;
+    padding: 20px;
+}
+
 
 .video-bg {
     max-height: 432px;
@@ -375,6 +382,19 @@ button{
     border: none;
     padding: 20px 10px;
     width : 300px;
+    color: #ffffff;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+#access-page-athlete-btn{
+    background-color: #ff0000;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: none;
+    padding: 20px 10px;
+    width : 200px;
     color: #ffffff;
     border-radius: 30px;
     transition: all 0.3s ease-in-out;

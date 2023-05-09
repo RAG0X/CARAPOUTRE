@@ -31,7 +31,7 @@
             <h1 id="welcome-message">Hey <?php echo $_SESSION["username"]; ?> !</h1>
         </div>
         <div class="contenu-menu">
-            <button class="button2" id="menu-btn1" onclick="window.location.href='menu_coach_liste_athlete.php'">Liste Athletes</button>
+            <button class="button2" id="menu-btn1" onclick="window.location.href='menu_coach_liste_athletes.php'">Liste Athletes</button>
             <button class="button2" id="menu-btn2" onclick="window.location.href='menu_coach_parametres.php'">Parametres</button>
         </div>
     </div>
@@ -45,11 +45,6 @@
             document.body.classList.toggle('no-scroll')
             window.scrollTo(0,0)
         });
-    </script>
-
-    <script>
-        const welcomeMessage = document.getElementById("welcome-message");
-        welcomeMessage.innerHTML = "Hey " + "<?php echo $_SESSION['username']; ?>" + " !";
     </script>
 
     <script>
