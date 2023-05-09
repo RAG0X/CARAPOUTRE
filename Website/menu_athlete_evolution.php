@@ -90,7 +90,7 @@
 
     <div class="menu">
             <div class="wrap-menu">
-                <h1 id="welcome-message">Besoin de changement <?php echo $_SESSION["username"]; ?> ?</h1>
+                <h1 id="welcome-message">Je vois que ça évolue <?php echo $_SESSION["username"]; ?> !</h1>
             </div>
             <div class="contenu-menu">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">

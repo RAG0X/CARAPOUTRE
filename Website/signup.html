@@ -54,19 +54,19 @@
                 <option value="coach">Coach</option>
               </select>
             </div>
-            <div class="column">
+            <div class="column" id="birthdate-div">
               <label for="date">Date de naissance</label>
-              <input type="date" id="birthdate" name="birthdate" required>
+              <input type="date" id="birthdate" name="birthdate">
             </div>
           </div>
-          <div class="row">
+          <div class="row" id="height-weight-row">
             <div class="column">
               <label for="taille">Taille (cm)</label>
-              <input type="text" id="height" name="height" placeholder="Votre taille ici" required>
+              <input type="text" id="height" name="height" placeholder="Votre taille ici">
             </div>
             <div class="column">
               <label for="poids">Poids (kg)</label>
-              <input type="text" id="weight" name="weight" placeholder="Votre poids ici" required>
+              <input type="text" id="weight" name="weight" placeholder="Votre poids ici">
             </div>
           </div>
           <div class="row connect">
@@ -76,23 +76,40 @@
       </div>      
 </body>
 
-    <script>
-        const menuHamburger = document.querySelector(".menu-hamburger")
-        const navLinks = document.querySelector(".nav-links")
- 
-        menuHamburger.addEventListener('click',()=>{
-        navLinks.classList.toggle('mobile-menu')
-        document.body.classList.toggle('no-scroll')
-        window.scrollTo(0,0)
-        })
-    </script>
+  <script>
+      const menuHamburger = document.querySelector(".menu-hamburger")
+      const navLinks = document.querySelector(".nav-links")
 
-    <script>
-        const connexionSbmt = document.getElementById('submit-btn');
+      menuHamburger.addEventListener('click',()=>{
+      navLinks.classList.toggle('mobile-menu')
+      document.body.classList.toggle('no-scroll')
+      window.scrollTo(0,0)
+      })
+  </script>
 
-        connexionSbmt.addEventListener('click', function() {
-        connexionSbmt.classList.add('button-clicked');
-        });
-    </script>
+  <script>
+    const statutSelect = document.getElementById("statut-select");
+    const poidstailleInput = document.getElementById("height-weight-row");
+    const dateInput = document.getElementById("birthdate-div");
+
+    statutSelect.addEventListener("change", function() {
+      if (this.value === "athlete") {
+        poidstailleInput.style.display = "block";
+        dateInput.style.display = "block";
+      } else {
+        poidstailleInput.style.display = "none";
+        dateInput.style.display = "none";
+      }
+    });
+  </script>
+
+
+  <script>
+      const connexionSbmt = document.getElementById('submit-btn');
+
+      connexionSbmt.addEventListener('click', function() {
+      connexionSbmt.classList.add('button-clicked');
+      });
+  </script>
 
 </html>
