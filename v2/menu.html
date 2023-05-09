@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARAPOUTRE - Home</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <img href="index.html" src="img/logo-carapoutre.png" alt="logo Carapoutre" class="logo"></img>
+        <div class="nav-links">
+            <ul>
+                <li><a href="">Déconnexion</a></li>
+            </ul>
+        </div>
+        <img src="img/menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+    </nav>
+
+    <div class="menu">
+        <div class="wrap-menu">
+            <h1>Hey [USERNAME] !</h1>
+        </div>
+        <div class="contenu-menu">
+            <button class="button2" id="submit-btn">Programmation</button>
+            <button class="button2" id="submit-btn">Evolution</button>
+            <button class="button2" id="submit-btn">Parametres</button>
+        </div>
+    </div>
+</body>
+
+    <script>
+        const menuHamburger = document.querySelector(".menu-hamburger")
+        const navLinks = document.querySelector(".nav-links")
+ 
+        menuHamburger.addEventListener('click',()=>{
+        navLinks.classList.toggle('mobile-menu')
+        document.body.classList.toggle('no-scroll')
+        window.scrollTo(0,0)
+        })
+    </script>
+
+    <script>
+        const connexionSbmt = document.getElementById('submit-btn');
+
+        connexionSbmt.addEventListener('click', function() {
+        connexionSbmt.classList.add('button-clicked');
+        });
+    </script>
+
+</html>
