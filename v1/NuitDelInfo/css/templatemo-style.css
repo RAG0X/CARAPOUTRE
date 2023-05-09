@@ -1,0 +1,246 @@
+/* CSS PAGE NUIT DE LINFO */
+
+body 
+{
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: #eeeeee;
+  color: #6C6D6E;mb-0
+}
+
+p 
+{
+  line-height: 1.8;
+}
+
+.small
+{
+	font-size : 16px
+}
+
+.medium
+{
+	font-size : 24px
+}
+
+.large
+{
+	font-size : 40px
+}
+
+.extra-large
+{
+	font-size : 64px
+}
+
+.huge
+{
+	font-size : 96px
+}
+
+.tm-page-container 
+{
+	min-height: 1500px;
+  max-width: 1000px;
+  width: 100%;  
+}
+
+.tm-section 
+{
+	margin-top: 155px;
+  margin-bottom: 155px;
+  position: relative;
+}
+
+.tm-content-container 
+{      
+  border-radius: 20px;
+  background-color: white;
+}
+
+
+.tm-content 
+{  
+  padding: 55px;
+}
+
+.tm-header 
+{
+  padding: 65px 15px;
+}
+
+.tm-img 
+{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;  
+}
+
+footer 
+{
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+  color: #9A9B9C;
+}
+
+.tm-content-2 
+{
+	padding-left: 45px;
+	padding-right: 45px;
+}
+
+.tm-img-overlay-wrap 
+{
+	position: relative;
+	min-height: 300px;
+	background-image: url(../img/wrap.gif);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+.tm-img-overlay {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.tm-img-overlay-text {
+	position: relative;
+	z-index: 1000;
+}
+
+.tm-contact-form {
+	max-width: 380px;
+}
+
+.form-group 
+{
+	margin-bottom: 35px;
+}
+
+.bloc-annonce
+{
+  
+}
+
+.titre-annonce
+{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: medium;
+	color: #cae8ff;
+	font-weight: bold;
+}
+
+.video-annonce
+{
+	display: flex;
+    margin-left: auto;
+    margin-right: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.description-annonce{
+	font-size: 10px;
+	margin-bottom: 20px;
+}
+
+.annonce-container{
+	padding-left: 15px;
+    padding-right: 15px;	
+}
+
+.prix-annonce{
+	color: #0299CC;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: -20px;
+}
+
+.titre-site-wrap{
+	color: #ffffff;
+	font-size: 90px;
+	text-align: center;
+	font-weight: bold;
+	margin: auto;
+}
+
+.bouton-achat
+{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	outline: none;
+	cursor: pointer;
+	font-weight: 600;
+	border-radius: 3px;
+	padding: 12px 24px;
+	border: 0;
+	color: #fcfcfd;
+	background: #0299CC;
+	line-height: 1.15;
+	font-size: 16px;
+	:hover 
+	{
+		transition: all .1s ease;
+		box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+	}             
+}
+
+@media (max-width: 945px) {
+  .tm-nav {
+    position: static;
+  }
+
+  .tm-page-container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (max-width: 575px) {
+	.tm-gallery-item {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+@media (max-width: 480px) {
+  footer {
+    display: block;
+  }
+
+  footer span {
+    display: block;
+    padding: 15px;
+  }
+}
+
+.color-noir
+{
+    background-color: #161b22;
+}
+
+.color-blanc
+{
+    color: #f0f6fc
+}
+
+.text-center
+{
+	text-align: center;
+}
