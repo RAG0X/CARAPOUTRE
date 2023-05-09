@@ -128,7 +128,7 @@
                         <button id="delete-btn" type="submit" name="delete-account">Supprimer le compte</button>
                 </div>
             </form>
-            <button class="button2" id="retour-btn" onclick="window.location.href='menu_athlete .php'">Retour</button>
+            <button class="button2" id="retour-btn" onclick="window.location.href='menu_athlete.php'">Retour</button>
             </div>
         </div>
     </div>

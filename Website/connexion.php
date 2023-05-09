@@ -51,7 +51,7 @@ if (mysqli_num_rows($result_athlete) > 0) {
 
 } else {
     // Utilisateur non trouvé
-    echo "Adresse e-mail ou mot de passe incorrect.";
+    header("Location: loginfailed.html");
 }
 
 // Fermeture de la connexion à la base de données

@@ -92,46 +92,38 @@
             <div class="wrap-menu">
                 <h1 id="welcome-message">Je vois que ça évolue <?php echo $_SESSION["username"]; ?> !</h1>
             </div>
-            <div class="contenu-menu">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                <div class="row">
-                    <div class="column">
-                        <label for="email">Adresse email</label>
-                        <input type="email" id="email" name="email" value="<?php echo $email ?>" required>
+            <div class="contenu-menu" id="contenu-menu-suivi">
+                <div class="colonne-bloc-suivi">
+                    <div class="bloc-recap" id="bloc-recap">
+                        <img src="img/stats-icon.png" alt="logo statistique" class="logo-stats">
+                        <h2 class="titre-bloc-suivi-score">Votre score : 125 </h2>
+                        <h2 class="titre-bloc-suivi-classifications">Elite</h2>
                     </div>
-                    <div class="column">
-                        <label for="password">Mot de passe</label>
-                        <input type="password" id="password" name="password" value="<?php echo $password ?>" required>
+                    <div class="bloc-suivi-poids" id="bloc-suivi-poids">
+                        <h2 class="titre-bloc-suivi-poids-valeurs">80<span style="font-size: 18px; font-weight: normal;">kg</span></h2>
+                        <h2 class="titre-bloc-suivi-poids-texte">Votre poids</h2>
                     </div>
+                    <div class="bloc-suivi-force" id="bloc-suivi-force">
+                        <canvas id="chart" class="bloc-suivi-force-chart"></canvas>
+                    </div>
+                    <div class="bloc-suivi-bestperfs" id="bloc-suivi-bestperfs">
+                        <h2 class="titre-bloc-suivi-rp">RP Traction lesté</h2>
+                        <img src="img/pullup-icon.png" alt="logo pullup" class="logo-pullup">
+                        <h2 class="titre-bloc-suivi-rptractionleste-valeurs"><span style="font-weight: normal;">+</span>12.5<span style="font-size: 13.5px; font-weight: normal;">kg</span></h2>
+                    </div>
+                    <div class="bloc-suivi-bestperfs" id="bloc-suivi-bestperfs">
+                        <h2 class="titre-bloc-suivi-rp">RP Traction lesté</h2>
+                        <img src="img/pullup-icon.png" alt="logo pullup" class="logo-pullup">
+                        <h2 class="titre-bloc-suivi-rptractionleste-valeurs"><span style="font-weight: normal;">+</span>12.5<span style="font-size: 13.5px; font-weight: normal;">kg</span></h2>
+                    </div>
+                    
                 </div>
-                
-                <div class="row">
-                    <div class="column">
-                        <label for="birthdate">Date de naissance</label>
-                        <input type="date" id="birthdate" name="birthdate" value="<?php echo $birthdate ?>" required>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="column">
-                        <label for="height">Taille (en cm)</label>
-                        <input type="number" id="height" name="height" value="<?php echo $height ?>" required>
-                    </div>
-                    <div class="column">
-                        <label for="weight">Poids (en kg)</label>
-                        <input type="number" id="weight" name="weight" value="<?php echo $weight ?>" required>
-                    </div>
-                </div>
-
-                <div class="row">
-                        <button id="update-btn" type="submit" name="update-info">Mettre à jour les informations</button>
-                        <button id="delete-btn" type="submit" name="delete-account">Supprimer le compte</button>
-                </div>
-            </form>
-                <button class="button2" id="retour-btn" onclick="history.back()">Retour</button>
+                    <button class="button2" id="retour-btn" onclick="window.location.href='menu_athlete.php'">Retour</button>
             </div>
         </div>
     </div>
+
+    
 
     <script>
         const menuHamburger = document.querySelector(".menu-hamburger");
@@ -144,9 +136,47 @@
         });
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
-        const welcomeMessage = document.getElementById("welcome-message");
-        welcomeMessage.innerHTML = "Besoin de changement " + "<?php echo $_SESSION['username']; ?>" + " ?";
+        const data = {
+        labels: ['date1', 'date2', 'date3', 'date4', 'date5'], // Remplacer les dates par celles souhaitées.
+        datasets: [{
+            label: 'Votre force en kg',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [64.3, 82, 85, 88, 90], // Remplacer les valeurs par celles souhaitées.
+            tension: 0.5,
+            fill: false,
+        }]
+        };
+
+        const config = {
+        type: 'line',
+        data,
+        options: {
+            responsive: true,
+            scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                display: true,
+                text: 'Force (kg)'
+                }
+            },
+            x: {
+                title: {
+                display: true
+                }
+            }
+            }
+        },
+        };
+
+        var myChart = new Chart(
+        document.getElementById('chart'),
+        config
+        );
     </script>
 </body>
 </html>

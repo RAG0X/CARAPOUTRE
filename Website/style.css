@@ -78,6 +78,7 @@ header {
     z-index: 2;
 }
 
+
 .block-centre {
     max-height: 432px;
     max-width: 768px;
@@ -219,11 +220,147 @@ header {
     justify-content: center;
 }
 
-.bloc-athlete {
-    background-color: #ff0000; /* Couleur de fond blanche */
+.contenu-menu-suivi{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titre-bloc-athlete {
+    padding: 10px;
+    color: #252525ee;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.titre-bloc-suivi-score {
+    padding: 10px;
+    color: #252525ee;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.titre-bloc-suivi-rp {
+    padding: 10px;
+    color: #252525ee;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.titre-bloc-suivi-classifications {
+    padding: 10px;
+    color: #252525ee;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.titre-bloc-suivi-poids-valeurs {
+    padding: 10px;
+    color: #252525ee;
+    font-size: 72px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.titre-bloc-suivi-rptractionleste-valeurs {
+    padding: 10px;
+    color: #252525ee;
+    font-size: 54px;
+    font-weight: bold;
+    text-align: right;
+}
+
+
+.titre-bloc-suivi-poids-texte {
+    padding: 5px;
+    color: #252525ee;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.colonne-bloc-athlete{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.colonne-bloc-suivi{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.bloc-recap{
+    background-color: #f5f5fa;
     border-radius: 10px;
+    min-width: 650px;
+    max-width: 650px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.bloc-suivi-poids{
+    background-color: #f5f5fa;
+    border-radius: 10px;
+    max-width: 200px;
     max-height: 300px;
     padding: 20px;
+    margin: 10px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloc-suivi-force{
+    background-color: #f5f5fa;
+    border-radius: 10px;
+    min-width: 460px;
+    max-width: 500px;
+    max-height: 300px;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.bloc-suivi-bestperfs{
+    background-color: #f5f5fa;
+    border-radius: 10px;
+    max-width: 500px;
+    min-width: 290px;
+    max-height: 300px;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+}
+
+.bloc-suivi-force-chart {
+    width: 100%;
+    max-width: 500px;
+    max-height: 200px;
+}
+
+.bloc-athlete {
+    background-color: #f5f5fa;
+    border-radius: 10px;
+    max-width: 250px;
+    max-height: 300px;
+    padding: 20px;
+    margin: 10px;
 }
 
 
@@ -388,10 +525,9 @@ button{
 }
 
 #access-page-athlete-btn{
-    background-color: #ff0000;
+    background-color: #252525ee;
     display: block;
     margin: 0 auto;
-    margin-top: 50px;
     border: none;
     padding: 20px 10px;
     width : 200px;
@@ -427,6 +563,20 @@ button{
 
 .register{
     padding-top: 20px;
+}
+
+.logo-pullup{
+    position: absolute;
+    left: 30px;
+    height: 100px;
+    display: flex;
+}
+
+.logo-stats{
+    position: absolute;
+    margin-left: 10px;
+    height: 105px;
+    opacity: 80%;
 }
 
 .no-scroll {
