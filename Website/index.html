@@ -1,99 +1,39 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+
 <html lang="fr">
-
 <head>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-  <title>La Nuit de l'Info</title>
- 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/templatemo-style.css" />
-
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARAPOUTRE - Home</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-  <div class="tm-page-container mx-auto">
-
-    <section class="tm-section">
-      <div class="tm-content-container">
-        <div class="mb-0 tm-img-overlay-wrap">
-			<div class="tm-img-overlay"></div>
-			<div class="tm-img-overlay-text text-white p-5">
-				<h4 class="titre-site-wrap">LA NUIT DE L'INFO 2022</h4>
-			</div>
+    <nav class="navbar">
+        <img href="index.html" src="img/logo-carapoutre.png" alt="logo Carapoutre" class="logo"></img>
+        <div class="nav-links">
+            <ul>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="login.html">Connexion</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
         </div>
+        <img src="img/menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+    </nav>
 
-		<div class="video-annonce" controls width="380">
-			<source src="img/nuitdlinfo.mov" type="video/mov" >
-		</div>
-
-		<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-			<div class="carousel-indicators">
-			  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-			  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-			  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-			</div>
-			<div class="carousel-inner">
-			  <div class="carousel-item active">
-				<div class="tm-content">
-					<div class="bloc-annonce color-noir">
-						<div class="titre-annonce">CARA PIGNOUF</div>
-						<video class="video-annonce" controls width="700">
-							<source src="img/caravane.mp4" type="video/mp4" >
-						</video>
-						<h5 class="color-blanc text-center">Un groupe motivée et plein d'énergie composée de...</h5>
-						<p class="description-annonce color-blanc text-center">CESSAC Victor, ESSERTAIZE Nolan, ZEZIOLA Lucas, FONTVIELLE Quentin, CROUZET Johan, SANTOS FARIA Francisco, Fleury Lois.</p>
-					</div>
-				</div>
-			  </div>
-			  <div class="carousel-item"> 
-				<div class="tm-content">
-					<div class="bloc-annonce color-noir">
-						<div class="titre-annonce">TMB</div>
-						<video class="video-annonce" controls width="700">
-							<source src="img/MAthieu.mp4" type="video/mp4" >
-						</video>
-						<h5 class="color-blanc text-center">Un groupe talentueux et plein d'idée composée de...</h5>
-						<p class="description-annonce color-blanc text-center">GELOT Mathieu, BERTHOLET Tim, Valenti Hugo, ABDAOUI Yassine, CROUZET Audric, FERNANDES Lucas, LUCZYNSKI Norbert.</p>
-					</div>
-				</div>
-			  </div>
-			  <div class="carousel-item">
-				<div class="tm-content">
-					<div class="bloc-annonce color-noir">
-						<div class="titre-annonce">LOS PEPITOS HERMANOS</div>
-						<video class="video-annonce" controls width="700">
-							<source src="img/pollos.mp4" type="video/mp4" >
-						</video>
-						<h5 class="color-blanc text-center">Un groupe atrayant et joviale composée de...</h5>
-						<p class="description-annonce color-blanc text-center">CESSAC Victor, ESSERTAIZE Nolan, ZEZIOLA Lucas, FONTVIELLE Quentin, CROUZET Johan, SANTOS FARIA Francisco, Fleury Lois.</p>
-					</div>
-				</div>
-			  </div>
-			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-			  <span class="carousel-control-prev-icon" aria-hidden="true"></span> 							
-			  <span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			  <span class="visually-hidden">Next</span>
-			</button>
-		  </div>
-
-    <footer>
-      <span>Quentin FONTVIELLE et Lucas ZEZIOLA</span>
-      <span>Code by CARA PIGNOUF and kjonnsorganer.</span>
-    </footer>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <video autoplay loop muted class="video-bg">
+        <source src="video/video-carapoutre.mp4" type="video/mp4">
+    </video>
 
 </body>
+    <script>
+        const menuHamburger = document.querySelector(".menu-hamburger")
+        const navLinks = document.querySelector(".nav-links")
 
+        menuHamburger.addEventListener('click',()=>{
+        navLinks.classList.toggle('mobile-menu')
+        document.body.classList.toggle('no-scroll')
+        window.scrollTo(0,0)
+        })
+    </script>
 </html>
