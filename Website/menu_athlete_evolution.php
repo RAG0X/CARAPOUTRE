@@ -106,24 +106,31 @@
                     <div class="bloc-suivi-force" id="bloc-suivi-force">
                         <canvas id="chart" class="bloc-suivi-force-chart"></canvas>
                     </div>
-                    <div class="bloc-suivi-bestperfs" id="bloc-suivi-bestperfs">
+                    <div class="bloc-suivi-bestperfs" id="bloc-suivi-bestperfs-1">
                         <h2 class="titre-bloc-suivi-rp">RP Traction lesté</h2>
                         <img src="img/pullup-icon.png" alt="logo pullup" class="logo-pullup">
                         <h2 class="titre-bloc-suivi-rptractionleste-valeurs"><span style="font-weight: normal;">+</span>12.5<span style="font-size: 13.5px; font-weight: normal;">kg</span></h2>
                     </div>
-                    <div class="bloc-suivi-bestperfs" id="bloc-suivi-bestperfs">
+                    <div class="bloc-suivi-bestperfs" id="bloc-suivi-bestperfs-2">
                         <h2 class="titre-bloc-suivi-rp">RP Traction lesté</h2>
                         <img src="img/pullup-icon.png" alt="logo pullup" class="logo-pullup">
                         <h2 class="titre-bloc-suivi-rptractionleste-valeurs"><span style="font-weight: normal;">+</span>12.5<span style="font-size: 13.5px; font-weight: normal;">kg</span></h2>
-                    </div>
-                    
+                    </div>                    
                 </div>
                     <button class="button2" id="retour-btn" onclick="window.location.href='menu_athlete.php'">Retour</button>
             </div>
         </div>
     </div>
 
-    
+    <!-- Ajout du code pour la fenêtre pop-up -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close" id="close">&times;</span>
+            <div class="popup-chart">
+                <canvas id="popup-chart"></canvas>
+            </div>
+        </div>
+    </div>
 
     <script>
         const menuHamburger = document.querySelector(".menu-hamburger");
@@ -134,49 +141,143 @@
             document.body.classList.toggle('no-scroll')
             window.scrollTo(0,0)
         });
+
+        // Gestion de la fenêtre pop-up
+        const blocSuiviBestPerfs1 = document.getElementById("bloc-suivi-bestperfs-1");
+        const popup = document.getElementById("popup");
+        const popupContent = document.querySelector(".popup-content");
+        const close = document.getElementById("close");
+
+        blocSuiviBestPerfs1.addEventListener("click", () => {
+            // Création du graphique de la fenêtre pop-up
+            const popupChart = new Chart(
+                document.getElementById("popup-chart"),
+                {
+                    type: "line",
+                    data: {
+                        labels: ['date1', 'date2', 'date3', 'date4', 'date5'], // Remplacer les dates par celles souhaitées.
+                        datasets: [{
+                            label: 'Votre force en kg',
+                            backgroundColor: 'rgb(255, 99, 132)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            data: [10, 10, 12.5, 15, 15], // Remplacer les valeurs par celles souhaitées.
+                            tension: 0.5,
+                            fill: false,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Force (kg)'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true
+                                }
+                            }
+                        }
+                    }
+                }
+            );
+
+            // Affichage de la fenêtre pop-up
+            popup.style.display = "block";
+            popupContent.style.width = "calc(16 / 9 * 80vh)";
+            popupContent.style.height = "80vh";
+
+            // Fermeture de la fenêtre pop-up lorsqu'on clique en dehors
+            window.onclick = (event) => {
+                if (event.target === popup) {
+                    // Réinitialisation du contenu de la fenêtre pop-up
+                    popupChart.destroy();
+                    popup.style.display = "none";
+                }
+            }
+        });
+
+        close.addEventListener("click", () => {
+            // Réinitialisation du contenu de la fenêtre pop-up
+            popupChart.destroy();
+            popup.style.display = "none";
+        });
     </script>
+
+<script>
+    // Gestion de la fenêtre pop-up
+    const blocSuiviPoids = document.getElementById("bloc-suivi-poids");
+    const popup = document.getElementById("popup");
+    const popupContent = document.querySelector(".popup-content");
+    const close = document.getElementById("close");
+    let popupChart;
+
+    blocSuiviPoids.addEventListener("click", () => {
+        // Création du graphique de la fenêtre pop-up
+        popupChart = new Chart(
+            document.getElementById("popup-chart"),
+            {
+                type: "line",
+                data: {
+                    labels: ['date1', 'date2', 'date3', 'date4', 'date5'], // Remplacer les dates par celles souhaitées.
+                    datasets: [{
+                        label: 'Votre force en kg',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [10, 10, 12.5, 15, 15], // Remplacer les valeurs par celles souhaitées.
+                        tension: 0.5,
+                        fill: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Force (kg)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true
+                            }
+                        }
+                    }
+                }
+            }
+        );
+
+        // Affichage de la fenêtre pop-up
+        popup.style.display = "block";
+        popupContent.style.width = "calc(16 / 9 * 80vh)";
+        popupContent.style.height = "80vh";
+        popupContent.style.top = "50%";
+        popupContent.style.left = "50%";
+        popupContent.style.transform = "translate(-50%, -50%)";
+
+        // Fermeture de la fenêtre pop-up lorsqu'on clique en dehors
+        window.onclick = (event) => {
+            if (event.target === popup) {
+                // Réinitialisation du contenu de la fenêtre pop-up
+                popupChart.destroy();
+                popup.style.display = "none";
+            }
+        }
+    });
+
+    close.addEventListener("click", () => {
+        // Réinitialisation du contenu de la fenêtre pop-up
+        popupChart.destroy();
+        popup.style.display = "none";
+    });
+</script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script>
-        const data = {
-        labels: ['date1', 'date2', 'date3', 'date4', 'date5'], // Remplacer les dates par celles souhaitées.
-        datasets: [{
-            label: 'Votre force en kg',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [64.3, 82, 85, 88, 90], // Remplacer les valeurs par celles souhaitées.
-            tension: 0.5,
-            fill: false,
-        }]
-        };
-
-        const config = {
-        type: 'line',
-        data,
-        options: {
-            responsive: true,
-            scales: {
-            y: {
-                beginAtZero: true,
-                title: {
-                display: true,
-                text: 'Force (kg)'
-                }
-            },
-            x: {
-                title: {
-                display: true
-                }
-            }
-            }
-        },
-        };
-
-        var myChart = new Chart(
-        document.getElementById('chart'),
-        config
-        );
-    </script>
 </body>
 </html>
