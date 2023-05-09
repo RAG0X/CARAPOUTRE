@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARAPOUTRE - Inscription Echouée !</title>
+    <meta http-equiv="refresh" content="3;url=signup.html">
+    
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <img href="index.html" src="img/logo-carapoutre.png" alt="logo Carapoutre" class="logo"></img>
+        <div class="nav-links">
+            <ul>
+                
+            </ul>
+        </div>
+        <img src="img/menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+    </nav>
+
+    <div class="container success">
+        <h1>Inscription échouée !</h1>
+        <p>Votre inscription a échoué. Veuillez réessayer.</p>
+        <p>Vous allez être redirigé vers la page d'inscription dans 3 secondes.</p>
+    </div>
+
+</body>
+    <script>
+        const menuHamburger = document.querySelector(".menu-hamburger")
+        const navLinks = document.querySelector(".nav-links")
+
+        menuHamburger.addEventListener('click',()=>{
+        navLinks.classList.toggle('mobile-menu')
+        document.body.classList.toggle('no-scroll')
+        window.scrollTo(0,0)
+        })
+    </script>
+</html>
