@@ -99,12 +99,15 @@
                         <h2 class="titre-bloc-suivi-score">Votre score : 125 </h2>
                         <h2 class="titre-bloc-suivi-classifications">Elite</h2>
                     </div>
-                    <div class="bloc-suivi-poids" id="bloc-suivi-poids">
-                        <h2 class="titre-bloc-suivi-poids-valeurs">80<span style="font-size: 18px; font-weight: normal;">kg</span></h2>
-                        <h2 class="titre-bloc-suivi-poids-texte">Votre poids</h2>
+                    <div class="bloc-suivi-bestperfs" id="bloc-suivi-poids">
+                    <h2 class="titre-bloc-suivi-rp">Votre poids</h2>
+                        <img src="img/pese-personne.png" alt="pese personne" class="pese-personne">
+                        <h2 class="titre-bloc-suivi-rptractionleste-valeurs">12.5<span style="font-size: 13.5px; font-weight: normal;">kg</span></h2>
                     </div>
-                    <div class="bloc-suivi-force" id="bloc-suivi-force">
-                        <canvas id="chart" class="bloc-suivi-force-chart"></canvas>
+                    <div class="bloc-suivi-bestperfs" id="bloc-suivi-force">
+                    <h2 class="titre-bloc-suivi-rp">RP Traction lesté</h2>
+                        <img src="img/pullup-icon.png" alt="logo pullup" class="logo-pullup">
+                        <h2 class="titre-bloc-suivi-rptractionleste-valeurs"><span style="font-weight: normal;">+</span>12.5<span style="font-size: 13.5px; font-weight: normal;">kg</span></h2>
                     </div>
                     <div class="bloc-suivi-bestperfs" id="bloc-suivi-bestperfs-1">
                         <h2 class="titre-bloc-suivi-rp">RP Traction lesté</h2>
@@ -123,43 +126,71 @@
     </div>
 
     <!-- Ajout du code pour la fenêtre pop-up -->
-    <div class="popup" id="popup">
+    <div class="popup" id="popup1">
         <div class="popup-content">
             <span class="close" id="close">&times;</span>
             <div class="popup-chart">
-                <canvas id="popup-chart"></canvas>
+                <canvas id="popup-chart1"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ajout du code pour la deuxième fenêtre pop-up -->
+    <div class="popup" id="popup2">
+        <div class="popup-content">
+            <span class="close" id="close2">&times;</span>
+            <div class="popup-chart">
+                <canvas id="popup-chart2"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ajout du code pour la troisième fenêtre pop-up -->
+    <div class="popup" id="popup3">
+        <div class="popup-content">
+            <span class="close" id="close3">&times;</span>
+            <div class="popup-chart">
+                <canvas id="popup-chart3"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ajout du code pour la quatrième fenêtre pop-up -->
+    <div class="popup" id="popup4">
+        <div class="popup-content">
+            <span class="close" id="close4">&times;</span>
+            <div class="popup-chart">
+                <canvas id="popup-chart4"></canvas>
             </div>
         </div>
     </div>
 
     <script>
-        const menuHamburger = document.querySelector(".menu-hamburger");
-        const navLinks = document.querySelector(".nav-links");
+    // Gestion de la fenêtre pop-up
+    const blocSuiviBestPerfs1 = document.getElementById("bloc-suivi-bestperfs-1");
+    const blocSuiviPoids = document.getElementById("bloc-suivi-poids");
+    const blocSuiviForce = document.getElementById("bloc-suivi-force");
+    const blocSuiviBestPerfs2 = document.getElementById("bloc-suivi-bestperfs-2");
 
-        menuHamburger.addEventListener('click',()=>{
-            navLinks.classList.toggle('mobile-menu')
-            document.body.classList.toggle('no-scroll')
-            window.scrollTo(0,0)
-        });
+    const elements = [blocSuiviBestPerfs1, blocSuiviPoids, blocSuiviForce, blocSuiviBestPerfs2];
+    const popups = document.querySelectorAll(".popup");    
+    const popupContents = document.querySelectorAll(".popup-content");
+    const closes = document.querySelectorAll(".close");
+    const popupCharts = [];
 
-        // Gestion de la fenêtre pop-up
-        const blocSuiviBestPerfs1 = document.getElementById("bloc-suivi-bestperfs-1");
-        const popup = document.getElementById("popup");
-        const popupContent = document.querySelector(".popup-content");
-        const close = document.getElementById("close");
-
-        blocSuiviBestPerfs1.addEventListener("click", () => {
+    elements.forEach((element, i) => {
+        element.addEventListener("click", () => {
             // Création du graphique de la fenêtre pop-up
-            const popupChart = new Chart(
-                document.getElementById("popup-chart"),
+            popupCharts[i] = new Chart(
+                document.getElementById(`popup-chart${i+1}`),
                 {
                     type: "line",
                     data: {
                         labels: ['date1', 'date2', 'date3', 'date4', 'date5'], // Remplacer les dates par celles souhaitées.
                         datasets: [{
-                            label: 'Votre force en kg',
-                            backgroundColor: 'rgb(255, 99, 132)',
-                            borderColor: 'rgb(255, 99, 132)',
+                            label: `Graphique ${i+1}`,
+                            backgroundColor: 'rgb(54, 162, 235)',
+                            borderColor: 'rgb(54, 162, 235)',
                             data: [10, 10, 12.5, 15, 15], // Remplacer les valeurs par celles souhaitées.
                             tension: 0.5,
                             fill: false,
@@ -186,98 +217,38 @@
             );
 
             // Affichage de la fenêtre pop-up
-            popup.style.display = "block";
-            popupContent.style.width = "calc(16 / 9 * 80vh)";
-            popupContent.style.height = "80vh";
+            popupContents[i].style.width = "calc(16 / 9 * 80vh)";
+            popupContents[i].style.height = "80vh";
+            popupContents[i].style.top = "50%";
+            popupContents[i].style.left = "50%";
+            popupContents[i].style.transform = "translate(-50%, -50%)";
+            popups[i].style.display = "block";
+            document.body.classList.add('no-scroll')
+            window.scrollTo(0,0)
 
             // Fermeture de la fenêtre pop-up lorsqu'on clique en dehors
             window.onclick = (event) => {
-                if (event.target === popup) {
+                if (event.target === popups[i]) {
                     // Réinitialisation du contenu de la fenêtre pop-up
-                    popupChart.destroy();
-                    popup.style.display = "none";
+                    popupCharts[i].destroy();
+                    popups[i].style.display = "none";
+                    document.body.classList.remove('no-scroll')
                 }
             }
         });
 
-        close.addEventListener("click", () => {
+        closes[i].addEventListener("click", () => {
             // Réinitialisation du contenu de la fenêtre pop-up
-            popupChart.destroy();
-            popup.style.display = "none";
+            popupCharts[i].destroy();
+            popups[i].style.display = "none";
+            document.body.classList.remove('no-scroll')
         });
-    </script>
-
-<script>
-    // Gestion de la fenêtre pop-up
-    const blocSuiviPoids = document.getElementById("bloc-suivi-poids");
-    const popup = document.getElementById("popup");
-    const popupContent = document.querySelector(".popup-content");
-    const close = document.getElementById("close");
-    let popupChart;
-
-    blocSuiviPoids.addEventListener("click", () => {
-        // Création du graphique de la fenêtre pop-up
-        popupChart = new Chart(
-            document.getElementById("popup-chart"),
-            {
-                type: "line",
-                data: {
-                    labels: ['date1', 'date2', 'date3', 'date4', 'date5'], // Remplacer les dates par celles souhaitées.
-                    datasets: [{
-                        label: 'Votre force en kg',
-                        backgroundColor: 'rgb(255, 99, 132)',
-                        borderColor: 'rgb(255, 99, 132)',
-                        data: [10, 10, 12.5, 15, 15], // Remplacer les valeurs par celles souhaitées.
-                        tension: 0.5,
-                        fill: false,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Force (kg)'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true
-                            }
-                        }
-                    }
-                }
-            }
-        );
-
-        // Affichage de la fenêtre pop-up
-        popup.style.display = "block";
-        popupContent.style.width = "calc(16 / 9 * 80vh)";
-        popupContent.style.height = "80vh";
-        popupContent.style.top = "50%";
-        popupContent.style.left = "50%";
-        popupContent.style.transform = "translate(-50%, -50%)";
-
-        // Fermeture de la fenêtre pop-up lorsqu'on clique en dehors
-        window.onclick = (event) => {
-            if (event.target === popup) {
-                // Réinitialisation du contenu de la fenêtre pop-up
-                popupChart.destroy();
-                popup.style.display = "none";
-            }
-        }
-    });
-
-    close.addEventListener("click", () => {
-        // Réinitialisation du contenu de la fenêtre pop-up
-        popupChart.destroy();
-        popup.style.display = "none";
     });
 </script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
+
+
 </body>
 </html>
