@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARAPOUTRE - Home</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <img href="index.html" src="img/logo-carapoutre.png" alt="logo Carapoutre" class="logo"></img>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="signup.html">Inscription</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+        <img src="img/menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+    </nav>
+
+    <div class="container signup">
+        <h1>INSCRIPTION</h1>
+        <p>Rejoignez notre communauté sportive et atteignez vos objectifs avec la CARA POUTRE !</p>
+        <form method="post" action="signup.php">
+          <div class="row">
+            <div class="column">
+              <label for="username">Nom d'utilisateur</label>
+              <input type="text" id="username" name="username" placeholder="Votre nom d'utilisateur ici" required>
+            </div>
+            <div class="column">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Votre email ici" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              <label for="password">Mot de passe</label>
+              <input type="password" id="password" name="password" placeholder="Votre mot de passe ici" required>
+            </div>
+            <div class="column">
+              <label for="confirm-password">Confirmer le mot de passe</label>
+              <input type="password" id="confirm-password" placeholder="Confirmez votre mot de passe" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              <label for="statut-select">Choisir son statut</label>
+              <select name="statut" id="statut-select" required>
+                <option value="">--SELECTIONNER VOTRE STATUT--</option>
+                <option value="athlete">Athlete</option>
+                <option value="coach">Coach</option>
+              </select>
+            </div>
+            <div class="column" id="birthdate-div">
+              <label for="birthdate">Date de naissance</label>
+              <input type="date" id="birthdate" name="birthdate">
+            </div>
+          </div>
+          <div class="row" id="height-weight-row">
+            <div class="column">
+              <label for="height">Taille (cm)</label>
+              <input type="text" id="height" name="height" placeholder="Votre taille ici">
+            </div>
+            <div class="column">
+              <label for="weight">Poids (kg)</label>
+              <input type="text" id="weight" name="weight" placeholder="Votre poids ici">
+            </div>
+          </div>
+          <div class="row connect">
+            <button id="submit-btn">Inscription</button>
+          </div>
+        </form>
+      </div>      
+</body>
+
+<script src="js/menu-hamburger.js"></script>
+<script src="js/signup.js"></script>
+</html>
